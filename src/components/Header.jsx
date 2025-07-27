@@ -1,12 +1,18 @@
 import React from 'react'
-import messagesText from '../../utility'
-import logo from '../assets/icon-light-theme.png'
+import messagesText from '../utils/messagesHeaderText'
+import logoLight from '../assets/icon-light-theme.png'
+import logoDark from '../assets/logo.png'
+import { useContext } from 'react'
+import { Theme } from '../Context/Theme'
+import MessagesTop from './MessagesTop' 
+import PhoneMenu from './PhoneMenu'
 
 
 export default function Header() {
-
+  const { themeMod, toggleTheme } = useContext(Theme);
   const [index, setIndex] = React.useState(0);
   const [open, setOpen] = React.useState(false);
+  const [showPhoneMenu, setShowPhoneMenu] = React.useState(false);
   const message = messagesText[index];  
 
   function nextMessage() {
@@ -22,35 +28,32 @@ export default function Header() {
       setIndex(messagesText.length - 1);
     }
   }
+
+  function getPhoneMenu() {
+    setOpen(!open);
+    setShowPhoneMenu(!showPhoneMenu);
+    if(!open) { 
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }
   
 
   return(
     <header>
-
-      <div className="wrapper-header-front">
-        <div className="wrapper-messages-header">
-
-          <button
-            onClick={backMessage} 
-            className="material-symbols-outlined arrow back-message"
-            title="back"
-          >arrow_back_ios_new</button>
-
-          <p>{message}</p>
-          <button 
-            onClick={nextMessage} 
-            className="material-symbols-outlined arrow next-message"
-            title="next"
-          >arrow_forward_ios</button>
-        </div>
-      </div>
+      <MessagesTop 
+        backMessage={backMessage}
+        message={message}
+        nextMessage={nextMessage}
+      />
 
       <div className="wrapper-header-middle">
 
         <button 
           className="input-burger" 
           data-open={open? "true" : "false"} 
-          onClick={() => setOpen(prev => !prev)}
+          onClick={getPhoneMenu}
         >
           <div className='wrapper-burger'>
             <span className="line-burger line1-burger"></span>
@@ -60,8 +63,10 @@ export default function Header() {
 
         </button>
 
+        {showPhoneMenu && <PhoneMenu />}
+
         <div className="wrapper-logo">
-          <a href="#"><img src={logo} className="logo"/></a>
+          <a href="#"><img src={themeMod === 'light'? logoLight : logoDark} className="logo"/></a>
           <span className="logo-text">Art of Nature</span>
         </div>
 
@@ -81,7 +86,7 @@ export default function Header() {
             </div>
           </a>
 
-          <a href="/favorite" className="favorite-link" title="Account">
+          <a href="/favorite" className="favorite-link" title="Favorite">
             <div className="icon-wrapper">
               <span className="item-icon material-symbols-outlined">favorite</span>
               <span className="item-text">Favorite</span>
@@ -95,19 +100,22 @@ export default function Header() {
             </div>
           </a>
 
-          <a href="/cart" className="cart-link" title="Cart">
-            <div className="icon-wrapper">
-              <span className="item-icon material-symbols-outlined">dark_mode</span>
-              <span className="item-text">Dark</span>
-            </div>
-          </a>
+
+          {themeMod === 'light' && <div className="icon-wrapper wrapper-dark-mode">
+            <button onClick={ toggleTheme } className="item-icon material-symbols-outlined dark-mode-icon">dark_mode</button>
+            <span className="item-text">Dark</span>
+          </div>}
+
+          {themeMod === 'dark' && <div className="icon-wrapper wrapper-light-mode">
+            <button onClick={ toggleTheme } className="item-icon material-symbols-outlined light-mode-icon">light_mode</button>
+            <span className="item-text">light</span>
+          </div>}
 
         </div>
 
-
       </div>
 
-      <div className="collection-menu">
+      {/* <div className="collection-menu">
         <ul className="collection-list">
           <li className="collection-item">
             <a href="#">Home</a>
@@ -133,7 +141,7 @@ export default function Header() {
             <a href="#">All Tea</a>
           </li>
         </ul>
-      </div>
+      </div> */}
       
     </header>
   )

@@ -1,0 +1,24 @@
+body.dark {
+  --light-theme-base: hsl(0, 0%, 0%);
+  --lt-background: hsl(257, 17%, 29%);
+  --lt-color: hsl(0, 0%, 100%);
+  --white: hsl(0, 0%, 0%);
+  --lt-hover: hsl(0, 0%, 60%);
+  --dark-theme: hsl(103, 22%, 25%);
+
+
+  /* GENERAL SETTINGS */
+  a { text-decoration: none } 
+  a:link { color: var(--lt-color) }
+  a:visited { color: var(--lt-color) }
+
+
+  .collection-list {
+    & a:visited {  color: var(--lt-color)}
+    & a:hover { color: var(--lt-hover)}
+  }
+
+  .wrapper-header-front { background-color: var(--lt-background) }
+  .collection-menu { background-color: var(--lt-background) }
+
+}
