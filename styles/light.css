@@ -1,0 +1,36 @@
+
+body.light {
+  --light-theme-base: hsl(24, 45%, 98%);
+  --lt-background: hsl(257, 39%, 85%);
+  --lt-color: hsl(0, 0%, 6%);
+  --white: hsl(0, 0%, 100%);
+  --lt-hover: hsl(0, 0%, 31%);
+  --dark-theme: hsl(103, 22%, 25%);
+
+
+  /* GENERAL SETTINGS */
+  a { text-decoration: none } 
+  a:link { color: var(--lt-color) }
+  a:visited { color: var(--lt-color) }
+
+  .wrapper-dark-mode:hover {
+    color: var(--lt-hover);
+    cursor: pointer;
+  }
+
+
+  /* HEADER */
+  header {
+    background-color: var(--light-theme-base);
+    color: black;
+  }
+
+  .collection-list {
+    & a:visited {  color: var(--lt-color)}
+    & a:hover { color: black}
+  }
+
+  .wrapper-header-front { background-color: var(--lt-background) }
+  .collection-menu { background-color: var(--lt-background) }
+
+}
