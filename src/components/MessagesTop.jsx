@@ -12,7 +12,7 @@ export default function MessagesTop(props) {
           title="back"
         >arrow_back_ios_new</button>
 
-        <p>{props.message}</p>
+        <p className="message-text-header">{props.message}</p>
         <button 
           onClick={props.nextMessage} 
           className="material-symbols-outlined arrow next-message"

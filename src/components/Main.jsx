@@ -1,4 +1,6 @@
 import coverImage from '../assets/mix-tea2.jpg'
+import imageTitle from '../assets/flower-title.png'
+import  CarouselRightTea  from './CarouselRightTea.jsx'
 import { useEffect } from 'react'
 import { preferTeasCustoms } from '../utils/prefer-custom'
 import { selectionRightTeas }  from '../utils/right-tea'
@@ -43,7 +45,6 @@ export default function Main() {
   }, [])
 
 
-
   return (
 
     <main>
@@ -52,10 +53,13 @@ export default function Main() {
         <img className="cover-image" src={coverImage}/>
       </section>
 
-      <section className="custom-prefer-section">   
-        <h2 className='title-custom-prefer'>Preferred by customers</h2>
-        <div className="wrapper-custom-prefer">
+      <section className="custom-prefer-section">  
+        <div className="wrapper-title">
+          <img className="image-title" src={imageTitle} alt="title image"/>
+          <h2 className='title-custom-prefer'>Preferred by customers</h2>
+        </div> 
 
+        <div className="wrapper-custom-prefer">
           {preferTeasCustoms.map((customPrefer, index )=> {
             const imgUrl = new URL(`../assets/customPrefer/${customPrefer.src}`, import.meta.url).href;
 
@@ -81,29 +85,14 @@ export default function Main() {
         </div>
       </section>
 
-      <section>
-        <h2 className='title-custom-prefer'>Your Perfect Tea</h2>
-        <ul className="list-perfect-teas">
+      <section className="section-perfect-tea">
+        <div className="wrapper-title">
+          <img className="image-title" src={imageTitle} alt="title image"/>
+          <h2 className='title-custom-prefer'>Your Perfect Tea</h2>
+        </div>
 
-          {selectionRightTeas.map((objTea, index) => {
-            const imgUrl = new URL(`../assets/yourRightTeas/${objTea.src}`, import.meta.url).href;
+        <CarouselRightTea />
 
-            return(
-              <li key={index} className="wrapper-right-tea">
-                <a href={objTea.href}>
-                  <img 
-                    className="perfect-tea-img" 
-                    src={imgUrl} 
-                    alt={objTea.alt}
-                  />
-                </a>             
-                <h3 className="title-tea-prefer">{objTea.title}</h3>
-              </li>
-            )}) 
-          }
-          
-
-        </ul>
       </section>
     </main>
   )

@@ -115,7 +115,7 @@ export default function Header() {
 
       </div>
 
-      {/* <div className="collection-menu">
+       <div className="collection-menu">
         <ul className="collection-list">
           <li className="collection-item">
             <a href="#">Home</a>
@@ -141,7 +141,7 @@ export default function Header() {
             <a href="#">All Tea</a>
           </li>
         </ul>
-      </div> */}
+      </div> 
       
     </header>
   )

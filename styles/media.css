@@ -1,4 +1,4 @@
-@import url('./dark.css');
+@import url('./dark.css'); 
 
 *, *::after, *::before {
   box-sizing: border-box;
@@ -12,7 +12,10 @@ body {
 
 
 @media screen and (min-width: 760px) {
-  
+  .wrapper-custom-prefer {
+    grid-template-columns: repeat(4, 300px);
+  }
+
   .icon-wrapper::before {
     content: '';
     position: absolute;
@@ -31,10 +34,8 @@ body {
   .header-right {gap: 1.2rem}
   .account-link, .favorite-link, .item-text {display: block}
 
-}
 
-@media screen and (min-width: 960px) {
-  .input-burger {
+  .input-burger, .phone-menu-wrapper {
     display: none;
   }
 
@@ -46,6 +47,11 @@ body {
   .collection-menu {
     display: block;
   }
+
+}
+
+@media screen and (min-width: 960px) {
+
 }
 
 
