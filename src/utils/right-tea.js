@@ -7,6 +7,34 @@ import digestive from '../assets/yourRightTeas/digestive.jpg'
 
 export const selectionRightTeas = [
   {
+    src: 'heartCirculation.jpg',
+    alt: 'heart-circulation',
+    title: 'Heart & Circulation',
+    href: '#',
+  },
+
+  {
+    src: 'energyFocus.jpg',
+    alt: 'energy-focus',
+    title: 'Energy & Focus',
+    href: '#',
+  },
+
+  {
+    src: 'detox.jpg',
+    alt: 'energy-focus',
+    title: 'Detox & Restore',
+    href: '#',
+  },
+
+  {
+    src: 'digestive.jpg',
+    alt: 'digestive',
+    title: 'Digestive Teas',
+    href: '#',
+  },
+
+  {
     src: 'skinBeauty.jpg',
     alt: 'skin-beauty',
     title: 'Skin and Beauty',
@@ -28,23 +56,10 @@ export const selectionRightTeas = [
   },
 
   {
-    src: 'digestive.jpg',
-    alt: 'digestive',
-    title: 'Digestive Teas',
-    href: '',
-  },
-
-  {
-    src: 'heartCirculation.jpg',
+    src: 'selfStillness.jpg',
     alt: 'heart-circulation',
-    title: 'Heart & Circulation',
+    title: 'Self & Stillness',
     href: '#',
   },
 
-  {
-    src: 'energyFocus.jpg',
-    alt: 'energy-focus',
-    title: 'Energy & Focus',
-    href: '#',
-  }
 ]

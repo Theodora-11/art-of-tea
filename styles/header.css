@@ -19,8 +19,12 @@ header {
   padding: 0;
   gap: 1rem;
   line-height: 1;
-  height: 45px;
+  height: 50px;
   padding: 10px;
+}
+
+.message-text-header {
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .arrow {
